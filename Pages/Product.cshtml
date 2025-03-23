@@ -1,0 +1,21 @@
+﻿@page "{handler?}"
+@model WebAppCoreProduct.Pages.ProductModel
+@{
+    ViewData["Title"] = "Product Page";
+}
+
+<form method="post">
+    <label for="name">Название товара</label><br />
+    <input type="text" name="name" required /><br />
+    <label for="price">Цена</label><br />
+    <input type="number" name="price" min="0" required /><br /><br />
+    <input type="submit" asp-page-handler="" value="Получить скидку" /><br />
+    <label for="discont">Введите свою скидку (%)</label><br />
+    <input type="number" name="discont" min="0" /><br />
+    <input type="submit" asp-page-handler="Discont" value="С учетом своей скидки" /><br />
+    <label for="fixedDiscount">Введите фиксированную скидку</label><br />
+    <input type="number" name="fixedDiscount" min="0" /><br />
+    <input type="submit" asp-page-handler="FixedDiscount" value="С учетом фиксированной скидки" /><br />
+</form>
+
+<h3>@Model.MessageRezult</h3>
